@@ -185,22 +185,23 @@ pip3 install numpy pi3d svg.path rpi-gpio adafruit-blinka adafruit-circuitpython
 # enabled; simplifies the Python code a little (no "uncomment this")
 
 echo "Installing Adafruit code and data in /boot..."
-cd /tmp
-git clone https://github.com/taskew13/Pi_Eyes.git
+#cd /tmp
+#git clone https://github.com/taskew13/Pi_Eyes.git
 #curl https://github.com/taskew13/Pi_Eyes/archive/refs/heads/master.zip
 #unzip master.zip
 # Moving between filesystems requires copy-and-delete:
+cd
 cp -r Pi_Eyes /boot/Pi_Eyes
 rm -rf Pi_Eyes
 if [ $INSTALL_HALT -ne 0 ]; then
   echo "Installing gpio-halt in /usr/local/bin..."
-  curl https://github.com/adafruit/Adafruit-GPIO-Halt/archive/master.zip
-  unzip Adafruit-GPIO-Halt-master.zip
-  cd Adafruit-GPIO-Halt-master
+  #curl https://github.com/adafruit/Adafruit-GPIO-Halt/archive/master.zip
+  #unzip Adafruit-GPIO-Halt-master.zip
+  cd Adafruit-GPIO-Halt
   make
   mv gpio-halt /usr/local/bin
   cd ..
-  rm -rf Adafruit-GPIO-Halt-master
+  rm -rf Adafruit-GPIO-Halt
 fi
 
 # CONFIG -------------------------------------------------------------------
